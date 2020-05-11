@@ -1,0 +1,20 @@
+.Sidebar {
+  flex: 1;
+  padding: 0;
+  border: 1px solid black;
+}
+
+.AddFolder {
+  padding: 10px;
+  margin: 10px 5px;
+  border: 1px solid steelblue;
+  background: steelblue;
+  color: white;
+  font-size: 1.5rem;
+  width: 90%;
+}
+.AddFolder:hover {
+  cursor: pointer;
+  background: darkslateblue;
+  border-color: darkslateblue;
+}

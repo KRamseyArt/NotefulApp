@@ -1,0 +1,41 @@
+.Note {
+  border: 1px solid black;
+  margin-bottom: 10px;
+  display: flex;
+  background: khaki;
+}
+.Note:hover {
+  cursor: pointer;
+  background: lightgoldenrodyellow;
+}
+
+.Details {
+  text-align: left;
+  margin-left: 0;
+}
+
+.Details a{
+  font-size: 1.5rem;
+  text-decoration: none;
+  padding: 10px;
+  color: black;
+}
+
+article {
+  font-size: .75rem;
+  color: saddlebrown;
+  padding: 10px;
+}
+
+.DeleteNote {
+  border: 1px solid red;
+  background: red;
+  color: white;
+  margin-right: 0;
+  font-size: 1.5rem;
+}
+.DeleteNote:hover{
+  cursor: pointer;
+  border-color: darkred;
+  background: darkred;
+}

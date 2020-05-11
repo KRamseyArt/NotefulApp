@@ -1,0 +1,14 @@
+.Folder {
+  list-style-type: none;
+  padding: 10px;
+  border-bottom: 1px solid black;
+  background: skyblue;
+}
+.Folder a {
+  text-decoration: none;
+  color: black
+}
+.Folder:hover {
+  cursor: pointer;
+  background: powderblue;
+}
