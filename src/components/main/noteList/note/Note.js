@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './Note.css';
 
 export class Note extends Component {
+
   render() {
     const note = this.props.note;
 

@@ -3,6 +3,7 @@ import { Route, Switch, Link } from 'react-router-dom';
 
 import HomePage from './components/HomePage';
 import './App.css';
+import NotePage from './components/main/notePage/NotePage';
 
 export class App extends React.Component {
   state = {
@@ -22,7 +23,7 @@ export class App extends React.Component {
   }
 
   setFolderId(selectedFolder){
-    console.log(selectedFolder);
+    // console.log(selectedFolder);
     this.setState({
       selectedFolder
     })
@@ -40,13 +41,13 @@ export class App extends React.Component {
         <Switch>
           <Route
             path='/folder/:folderId'
-            render={() => {
+            render={(routerProps) => {
+              // console.log('FolderView')
               const filteredNotes = state.notes.filter(note => {
-                if (note.folderId === state.folderId){
-                  return note;
+                if (note.folderId === routerProps.match.params.folderId){
+                  return true;
                 }
               })
-              console.log(filteredNotes);
 
               return <HomePage
                 folders={state.folders}
@@ -56,9 +57,36 @@ export class App extends React.Component {
             }}
           />
           <Route
+            path='/note/:noteId'
+            render={(routerProps) => {
+              console.log(routerProps)
+              // console.log(this.state.notes)
+              const selectedNote = state.notes.find(note => {
+                if(note.id === routerProps.match.params.noteId){
+                  return note;
+                }
+              }) || {}
+              // console.log(selectedNote);
+
+              const selectedFolder = state.folders.find(folder => {
+                if(folder.id === selectedNote.folderId){
+                  return folder;
+                }
+              }) || {}
+              // console.log(selectedFolder);
+              
+              return <NotePage
+                history={routerProps.history}
+                folder={selectedFolder}
+                note={selectedNote}
+              />
+            }}
+          />
+          <Route
             exact
             path='/'
             render={() => {
+              // console.log('DefaultView')
               return <HomePage
                 folders={this.state.folders}
                 notes={this.state.notes}

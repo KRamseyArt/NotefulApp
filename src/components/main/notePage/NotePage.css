@@ -1,0 +1,48 @@
+.NotePage{
+  display: flex;
+}
+
+.FolderList {
+  flex: 1;
+  padding: 0;
+  border: 1px solid black;
+}
+.FolderList li {
+  list-style-type: none;
+}
+
+.ThisFolder {
+  list-style-type: none;
+  padding: 10px;
+  border-bottom: 1px solid black;
+  background: skyblue;
+}
+.ThisFolder a {
+  text-decoration: none;
+  color: black
+}
+.ThisFolder:hover {
+  cursor: pointer;
+  background: powderblue;
+}
+
+.BackBtn {
+  padding: 10px;
+  margin: 10px 5px;
+  border: 1px solid crimson;
+  background: crimson;
+  color: white;
+  font-size: 1.5rem;
+  width: 90%;
+}
+.BackBtn:hover {
+  cursor: pointer;
+  background: darkred;
+  border-color: darkred;
+}
+
+.NoteDisplay {
+  flex: 3;
+  padding: 10px;
+  border: 1px solid black;
+}
