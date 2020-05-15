@@ -5,13 +5,5 @@
 }
 
 .App {
-  border: 2px solid black;
-}
-.Header {
-  border: 1px solid black;
-  font-size: 2rem;
-  padding: 50px;
-}
-.Header a{
-  text-decoration: none;
+  background: midnightblue;
 }

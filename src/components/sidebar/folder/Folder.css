@@ -1,14 +1,14 @@
 .Folder {
   list-style-type: none;
   padding: 10px;
-  border-bottom: 1px solid black;
-  background: skyblue;
 }
 .Folder a {
   text-decoration: none;
-  color: black
+  color: white;
+  font-weight: bold;
 }
-.Folder:hover {
+.Folder:hover, .Folder:hover a{
+  color: midnightblue;
   cursor: pointer;
-  background: powderblue;
+  background: white;
 }

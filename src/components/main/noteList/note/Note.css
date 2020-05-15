@@ -1,8 +1,8 @@
 .Note {
-  border: 1px solid black;
+  border-radius: 10px;
   margin-bottom: 10px;
   display: flex;
-  background: khaki;
+  background: ghostwhite;
 }
 .Note:hover {
   cursor: pointer;
@@ -18,17 +18,17 @@
   font-size: 1.5rem;
   text-decoration: none;
   padding: 10px;
-  color: black;
+  color: midnightblue;
 }
 
 article {
   font-size: .75rem;
-  color: saddlebrown;
+  color: darkgrey;
   padding: 10px;
 }
 
 .DeleteNote {
-  border: 1px solid red;
+  border-radius: 0 10px 10px 0;
   background: red;
   color: white;
   margin-right: 0;

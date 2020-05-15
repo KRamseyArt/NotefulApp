@@ -5,7 +5,6 @@
 .FolderList {
   flex: 1;
   padding: 0;
-  border: 1px solid black;
 }
 .FolderList li {
   list-style-type: none;
@@ -14,7 +13,6 @@
 .ThisFolder {
   list-style-type: none;
   padding: 10px;
-  border-bottom: 1px solid black;
   background: skyblue;
 }
 .ThisFolder a {
@@ -23,13 +21,14 @@
 }
 .ThisFolder:hover {
   cursor: pointer;
-  background: powderblue;
+  background: white;
 }
 
 .BackBtn {
   padding: 10px;
   margin: 10px 5px;
-  border: 1px solid crimson;
+  border-radius: 10px;
+  border: none;
   background: crimson;
   color: white;
   font-size: 1.5rem;
@@ -44,5 +43,5 @@
 .NoteDisplay {
   flex: 3;
   padding: 10px;
-  border: 1px solid black;
+  background: skyblue;
 }
