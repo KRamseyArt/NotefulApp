@@ -7,6 +7,7 @@ import './NoteList.css'
 export class NoteList extends React.Component {
   render(){
     const notes = this.props.notes;
+    console.log(notes)
 
     return (
       <ul className='NoteList'>

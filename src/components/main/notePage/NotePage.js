@@ -1,18 +1,34 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Context from './../../../Context'
 
 import ChosenNote from '../../chosenNote/ChosenNote';
 
 import './NotePage.css';
 
 export class NotePage extends Component {
+  static contextType = Context;
+  
   render() {
+    const selectedNote = this.context.notes.find(note => {
+      if(note.id === this.props.match.params.noteId){
+        return note;
+      }
+    }) || {}
+    // console.log(selectedNote);
+
+    const selectedFolder = this.context.folders.find(folder => {
+      if(folder.id === selectedNote.folderId){
+        return folder;
+      }
+    }) || {}
+
     return (
       <main className="NotePage">
         <ul className="FolderList">
           <li className="ThisFolder">
-            <Link to={`/folder/${this.props.folder.id}`}>
-              {this.props.folder.name}
+            <Link to={`/folder/${selectedFolder.id}`}>
+              {selectedFolder.name}
             </Link>
           </li>
           <li>
@@ -25,7 +41,7 @@ export class NotePage extends Component {
           </li>
         </ul>
         <div className="NoteDisplay">
-          <ChosenNote note={this.props.note} />
+          <ChosenNote note={selectedNote} />
         </div>
         
       </main>

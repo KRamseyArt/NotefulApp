@@ -1,22 +1,25 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './Folder.css';
 
-export default function Folder(props) {
-  const folder = props.folder;
-  // console.log(folder);
+export default class Folder extends React.Component {
+  
+  render(){
+    const folder = this.props.folder;
+    // console.log(folder);
 
-  return (
-    <li
-      className="Folder"
-      key={folder.id}
-      id={folder.id}
-      onClick={(e) => props.selectFolder(e)}
-    >
-      <Link to={`/folder/${folder.id}`}>
-        {folder.name}
-      </Link>
-    </li>
-  )
+    return (
+      <li
+        className="Folder"
+        key={folder.id}
+        id={folder.id}
+        // onClick={this.props.selectFolder(folder.name)}
+      >
+        <NavLink to={`/folder/${folder.id}`}>
+          {folder.name}
+        </NavLink>
+      </li> 
+    )
+  }
 }

@@ -11,7 +11,10 @@ export default function ChosenNote(props) {
   
   return (
     <div className="ChosenNote">
-      <Note note={note}/>
+      <Note
+        note={note}
+        directory={'/'}
+      />
       <p>{note.content}</p>
     </div>
   )

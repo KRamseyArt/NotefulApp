@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
-
+import Context from './Context';
 import HomePage from './components/HomePage';
 import './App.css';
 import NotePage from './components/main/notePage/NotePage';
@@ -9,90 +9,87 @@ export class App extends React.Component {
   state = {
     folders: [],
     notes: [],
-    selectedFolder: "",
-    selectedNote: ""
   }
 
   componentDidMount(){
-    const store = this.props.store;
+    const ENDPOINT = 'http://localhost:9090';
+    Promise.all([
+      fetch(`${ENDPOINT}/notes`),
+      fetch(`${ENDPOINT}/folders`)
+    ])
+      .then(([notesRes, foldersRes]) => {
+        if(!notesRes.ok)
+          return notesRes.json().then(e => Promise.reject(e));
+        if(!foldersRes.ok)
+          return foldersRes.json().then(e => Promise.reject(e));
 
-    this.setState({
-      folders: store.folders,
-      notes: store.notes
-    })
+        return Promise.all([notesRes.json(), foldersRes.json()]);
+      })
+      .then(([notes, folders]) => {
+        this.setState({notes, folders});
+      })
+      .catch(error => {
+        console.error({error});
+      })
   }
 
   setFolderId(selectedFolder){
-    // console.log(selectedFolder);
+    
+
+    console.log("setting selected folder to: " + selectedFolder);
     this.setState({
       selectedFolder
+    })
+    console.log("selected folder is now " + this.state.selectedFolder);
+  }
+
+  setNoteId(selectedNote){
+    // alert('note selected');
+    this.setState({
+      selectedNote
+    })
+  }
+
+  handleDeleteNote = (noteId) => {
+    this.setState({
+      notes: this.state.notes.filter(note =>
+        note.id !== noteId)
     })
   }
   
   render() {
     // console.log(this.state);
     const state = this.state;
+    
+    const contextValue = {
+      notes: state.notes,
+      folders: state.folders,
+      deleteNote: this.handleDeleteNote,
+    }
+    
 
     return (
-      <div className="App">
-        <Switch>
-          <Route
-            path='/folder/:folderId'
-            render={(routerProps) => {
-              // console.log('FolderView')
-              const filteredNotes = state.notes.filter(note => {
-                if (note.folderId === routerProps.match.params.folderId){
-                  return true;
-                }
-              })
-
-              return <HomePage
-                folders={state.folders}
-                notes={filteredNotes}
-                selectFolder={(event) => this.setFolderId(event)}
-              />
-            }}
-          />
-          <Route
-            path='/note/:noteId'
-            render={(routerProps) => {
-              console.log(routerProps)
-              // console.log(this.state.notes)
-              const selectedNote = state.notes.find(note => {
-                if(note.id === routerProps.match.params.noteId){
-                  return note;
-                }
-              }) || {}
-              // console.log(selectedNote);
-
-              const selectedFolder = state.folders.find(folder => {
-                if(folder.id === selectedNote.folderId){
-                  return folder;
-                }
-              }) || {}
-              // console.log(selectedFolder);
-              
-              return <NotePage
-                history={routerProps.history}
-                folder={selectedFolder}
-                note={selectedNote}
-              />
-            }}
-          />
-          <Route
-            exact
-            path='/'
-            render={() => {
-              // console.log('DefaultView')
-              return <HomePage
-                folders={this.state.folders}
-                notes={this.state.notes}
-                selectFolder={(event) => this.setFolderId(event)}
-              />
-            }}
-          />
-        </Switch>
-      </div>
+      <Context.Provider
+        value={contextValue}
+      >
+        <div className="App">
+          <Switch>
+            <Route
+              path='/folder/:folderId'
+              component={HomePage}
+            />
+            <Route
+              path='/note/:noteId'
+              component={NotePage}
+            />
+            <Route
+              exact
+              path='/'
+              component={HomePage}
+            />
+          </Switch>
+        </div>
+      </Context.Provider>
     );
   }
 }
