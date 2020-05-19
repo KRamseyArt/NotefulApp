@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
+
 import Context from './../../../Context'
 
 import ChosenNote from '../../chosenNote/ChosenNote';
@@ -10,6 +12,7 @@ export class NotePage extends Component {
   static contextType = Context;
   
   render() {
+    console.log(this.props)
     const selectedNote = this.context.notes.find(note => {
       if(note.id === this.props.match.params.noteId){
         return note;
@@ -50,3 +53,8 @@ export class NotePage extends Component {
 }
 
 export default NotePage
+
+NotePage.propTypes = {
+  history:PropTypes.object,
+  match: PropTypes.object
+}

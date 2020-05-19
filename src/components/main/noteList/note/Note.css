@@ -25,12 +25,14 @@ article {
   font-size: .75rem;
   color: darkgrey;
   padding: 10px;
+  text-align: left;
 }
 
 .DeleteNote {
   border-radius: 0 10px 10px 0;
   background: red;
-  color: white;
+  border: 1px solid red;
+  color: ghostwhite;
   margin-right: 0;
   font-size: 1.5rem;
   padding: 15px 5px;
@@ -39,6 +41,10 @@ article {
   cursor: pointer;
   border-color: darkred;
   background: darkred;
+}
+.DeleteNote a{
+  color: ghostwhite;
+  text-decoration: none;
 }
 
 .DeleteNote button {

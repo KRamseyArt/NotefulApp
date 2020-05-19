@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
+
 import Context from './../../../../Context'
 
 import './Note.css';
@@ -38,6 +40,8 @@ export class Note extends Component {
   render() {
     const {name, id, modified} = this.props.note;
 
+    const thisDate = new Date(modified).toLocaleDateString();
+
     const deleteButton = this.props.directory
       ? <button
           className="DeleteNote"
@@ -55,7 +59,7 @@ export class Note extends Component {
         >
           X
         </button>
-    console.log(deleteButton)
+    // console.log(deleteButton)
 
     return (
           <li
@@ -66,8 +70,8 @@ export class Note extends Component {
               <Link to={`/note/${id}`}>
                 {name}
               </Link>
-              <article>
-                <em>Date Modified: {modified}</em>
+              <article className="ModifiedDate">
+                <em>{thisDate}</em>
               </article>
             </div>
             {deleteButton}      
@@ -77,3 +81,13 @@ export class Note extends Component {
 }
 
 export default Note
+
+Note.defaultProps = {
+  note: {
+    modified: new Date()
+  }
+}
+
+Note.propTypes = {
+  note: PropTypes.objectOf(PropTypes.string)
+}

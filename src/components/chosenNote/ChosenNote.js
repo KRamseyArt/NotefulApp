@@ -1,12 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 import Note from '../main/noteList/note/Note';
 
 import './ChosenNote.css';
 
 export default function ChosenNote(props) {
-  
-  
   const note = props.note;
   
   return (
@@ -23,4 +22,8 @@ export default function ChosenNote(props) {
 ChosenNote.defaultProps={
   note: {},
   folder: {}
+}
+
+ChosenNote.propTypes = {
+  note: PropTypes.objectOf(PropTypes.string).isRequired
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './Folder.css';
 
@@ -22,4 +23,14 @@ export default class Folder extends React.Component {
       </li> 
     )
   }
+}
+Folder.defaultProps = {
+  folder: {
+    name: 'Folder',
+    id: Math.floor(Math.random() * 100) + 'Folder' + Math.floor(Math.random * 100)
+  }
+}
+
+Folder.propTypes = {
+  folder: PropTypes.objectOf(PropTypes.string)
 }

@@ -33,20 +33,15 @@ export class App extends React.Component {
       })
   }
 
-  setFolderId(selectedFolder){
-    
-
-    console.log("setting selected folder to: " + selectedFolder);
+  addFolder = (folder) => {
     this.setState({
-      selectedFolder
+      folders: [...this.state.folders, folder]
     })
-    console.log("selected folder is now " + this.state.selectedFolder);
   }
 
-  setNoteId(selectedNote){
-    // alert('note selected');
+  addNote = (note) => {
     this.setState({
-      selectedNote
+      notes: [...this.state.notes, note]
     })
   }
 
@@ -64,6 +59,8 @@ export class App extends React.Component {
     const contextValue = {
       notes: state.notes,
       folders: state.folders,
+      addNote: this.addNote,
+      addFolder: this.addFolder,
       deleteNote: this.handleDeleteNote,
     }
     

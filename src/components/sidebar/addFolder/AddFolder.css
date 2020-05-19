@@ -1,0 +1,54 @@
+.AddFolderForm {
+  background: ghostwhite;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.AddFolderHeading {
+  background: skyblue;
+  color: ghostwhite;
+  padding: 5px;
+  border-radius: 10px 10px 0 0;
+}
+.FolderName {
+  width: 90%;
+}
+
+.FolderName label {
+  margin: 10px;
+}
+.FolderName input {
+  border: 1px solid skyblue;
+  border-radius: 5px;
+  padding: 5px;
+  height: 30px;
+  width: 100%;
+}
+
+.ButtonSection {
+  width: 90%;
+  display: flex;
+}
+.Btn {
+  margin: 10px 2px;
+  width: 50%;
+  height: 30px;
+  background: midnightblue;
+  border: none;
+  color: ghostwhite;
+  font-weight: bold;
+  font-size: 14px;
+}
+.Btn:hover {
+  cursor: pointer;
+  background: skyblue;
+}
+.Btn:disabled{
+  background: darkgray;
+}
+.Cancel {
+  border-radius: 10px 0 0 10px;
+}
+.Add {
+  border-radius: 0 10px 10px 0;
+}

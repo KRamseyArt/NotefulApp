@@ -19,6 +19,7 @@
   color: white;
 }
 .AddNote:hover, .AddNote:hover a {
+  cursor: pointer;
   color: midnightblue;
   background: white;
   border-color: white;

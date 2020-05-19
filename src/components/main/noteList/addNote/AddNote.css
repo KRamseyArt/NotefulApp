@@ -1,0 +1,88 @@
+.AddNoteForm {
+  background: ghostwhite;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+.Heading{
+  background: midnightblue;
+  color: ghostwhite;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+}
+
+.TopSection {
+  margin: 15px auto;
+  width: 90%;
+  display: flex;
+}
+.TitleSection {
+  flex: 3;
+}
+.TitleSection label{
+  padding: 0 10px;
+  align-self: center;
+}
+#title{
+  width: 70%;
+  height: 30px;
+  border: 1px solid skyblue;
+  border-radius: 5px;
+  text-align: left;
+  padding: 5px;
+}
+
+.FolderSection {
+  flex: 2;
+}
+#folderOptions{
+  width: 50%;
+  height: 30px;
+  border: 1px solid skyblue;
+  border-radius: 5px;
+  text-align: left;
+  padding: 5px;
+}
+.ContentSection {
+  width: 90%;
+}
+.ContentSection textarea{
+  width: 100%;
+  height: 100px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid skyblue;
+  padding: 5px;
+  text-align: left;
+}
+
+#date {
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  background: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100px;
+}
+
+.Button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  margin: 15px;
+  background: midnightblue;
+  color: ghostwhite;
+  font-size: 14px;
+  font-weight: bold;
+}
+.Button:hover {
+  cursor: pointer;
+  background: skyblue;
+}
+.Button:disabled {
+  background: darkgray;
+}
+
+.DateSection {
+  align-self: center;
+}
