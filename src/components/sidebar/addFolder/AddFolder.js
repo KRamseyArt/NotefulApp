@@ -93,8 +93,12 @@ export class AddFolder extends Component {
             className="name"
             name="name"
             id="name"
+            aria-required="true"
+            aria-label="Enter your Folder's name"
+            aria-describedby="folderNameDescription"
             onChange={e => this.updateFolderData(e.target.value)}
           />
+          <div id="folderNameDescription">Enter a name 3 letters or more</div>
           {this.state.folderName.touched && <ValidationError message={folderNameError} />}
         </div>
         <div className="ButtonSection">

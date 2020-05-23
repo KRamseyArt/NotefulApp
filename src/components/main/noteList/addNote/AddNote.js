@@ -153,33 +153,61 @@ export class AddNote extends Component {
               className="title"
               name="title"
               id="title"
+              aria-required="true"
+              aria-describedby="newNoteTitle"
+              aria-label="Title"
               onChange={e => this.updateTitle(e.target.value)}
             />
+            <div
+              id="newNoteTitle"
+              className="newNoteGuide"
+            >
+              Enter a title for your new note
+            </div>
             {this.state.title.touched && (
               <ValidationError message={titleError}/>
             )}
           </div>
           <div className="FolderSection">
-            <label htmlFor="folderOptions">Add To* </label>
+            <label htmlFor="folderOptions">Add To *</label>
             <select
               className="folderOptions"
               name="folderOptions"
               id="folderOptions"
+              aria-required="true"
+              aria-label="Add to Folder"
+              aria-describedby="newNoteFolder"
               onChange={e => this.updateFolder(e.target.value)}
             >
               <option value="null">Select a Folder--</option>
               {folderOptions}
             </select>
+            <div
+              id="newNoteFolder"
+              className="newNoteGuide"
+            >
+              Select folder to contain this note
+            </div>
           </div>
         </div>
         <div className="ContentSection">
+          <label htmlFor="content">Content *</label>
           <textarea
             type="text"
             className="content"
             name="content"
             id="content"
+            aria-required="true"
+            aria-label="Content"
+            aria-describedby="newNoteContent"
             onChange={e => this.updateContent(e.target.value)}
           />
+          <div
+            id="newNoteContent"
+            className="newNoteGuide"
+          >
+            Enter your new note's content
+          </div>
           {this.state.content.touched && (
             <ValidationError message={contentError} />
           )}

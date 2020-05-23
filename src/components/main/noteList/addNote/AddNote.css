@@ -86,3 +86,8 @@
 .DateSection {
   align-self: center;
 }
+
+.newNoteGuide {
+  font-size: 12px;
+  color: gray;
+}
