@@ -7,8 +7,10 @@
   color: white;
   font-weight: bold;
 }
+.Folder a:hover {
+  cursor: pointer;
+}
 .Folder:hover, .Folder:hover a{
   color: midnightblue;
-  cursor: pointer;
   background: white;
 }

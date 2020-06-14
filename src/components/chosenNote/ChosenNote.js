@@ -25,5 +25,11 @@ ChosenNote.defaultProps={
 }
 
 ChosenNote.propTypes = {
-  note: PropTypes.objectOf(PropTypes.string).isRequired
+  note: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    folder_id: PropTypes.number.isRequired,
+    date_published: PropTypes.string.isRequired,
+  })
 }

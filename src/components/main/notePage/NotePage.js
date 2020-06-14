@@ -12,26 +12,30 @@ export class NotePage extends Component {
   static contextType = Context;
   
   render() {
+    console.log(this.context)
     console.log(this.props)
     const selectedNote = this.context.notes.find(note => {
-      if(note.id === this.props.match.params.noteId){
+      if(note.id == this.props.match.params.noteId){
         return note;
       }
     }) || {}
     // console.log(selectedNote);
 
     const selectedFolder = this.context.folders.find(folder => {
-      if(folder.id === selectedNote.folderId){
+      if(folder.id == selectedNote.folder_id){
         return folder;
       }
     }) || {}
+
+    console.log(selectedNote)
+    console.log(selectedFolder)
 
     return (
       <main className="NotePage">
         <ul className="FolderList">
           <li className="ThisFolder">
-            <Link to={`/folder/${selectedFolder.id}`}>
-              {selectedFolder.name}
+            <Link to={`/api/folders/${selectedFolder.id}`}>
+              {selectedFolder.folder_name}
             </Link>
           </li>
           <li>

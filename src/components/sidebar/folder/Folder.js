@@ -17,8 +17,8 @@ export default class Folder extends React.Component {
         id={folder.id}
         // onClick={this.props.selectFolder(folder.name)}
       >
-        <NavLink to={`/folder/${folder.id}`}>
-          {folder.name}
+        <NavLink to={`/api/folders/${folder.id}`}>
+          {folder.folder_name}
         </NavLink>
       </li> 
     )
@@ -32,5 +32,8 @@ Folder.defaultProps = {
 }
 
 Folder.propTypes = {
-  folder: PropTypes.objectOf(PropTypes.string)
+  folder: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    folder_name: PropTypes.string.isRequired,
+  })
 }

@@ -52,7 +52,7 @@ export default Sidebar
 
 Sidebar.propTypes = {
   folders: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
+    id: PropTypes.number.isRequired,
+    folder_name: PropTypes.string.isRequired
   }))
 }

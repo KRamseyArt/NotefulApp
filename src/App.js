@@ -12,10 +12,10 @@ export class App extends React.Component {
   }
 
   componentDidMount(){
-    const ENDPOINT = 'http://localhost:9090';
+    const ENDPOINT = 'http://localhost:8000';
     Promise.all([
-      fetch(`${ENDPOINT}/notes`),
-      fetch(`${ENDPOINT}/folders`)
+      fetch(`${ENDPOINT}/api/notes`),
+      fetch(`${ENDPOINT}/api/folders`)
     ])
       .then(([notesRes, foldersRes]) => {
         if(!notesRes.ok)
@@ -72,11 +72,11 @@ export class App extends React.Component {
         <div className="App">
           <Switch>
             <Route
-              path='/folder/:folderId'
+              path='/api/folders/:folderId'
               component={HomePage}
             />
             <Route
-              path='/note/:noteId'
+              path='/api/notes/:noteId'
               component={NotePage}
             />
             <Route

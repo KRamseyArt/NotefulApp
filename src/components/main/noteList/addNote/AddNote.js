@@ -39,18 +39,18 @@ export class AddNote extends Component {
     // console.log("Date: ", date);
     // console.log("Content: ", content.value);
 
-    const ENDPOINT = 'http://localhost:9090';
-    fetch(`${ENDPOINT}/notes`,{
+    const ENDPOINT = 'http://localhost:8000';
+    fetch(`${ENDPOINT}/api/notes`,{
       method: 'POST',
       headers: {
         "Content-Type" : "application/json"
       },
       body: 
         JSON.stringify({
-          "name": title.value,
+          "title": title.value,
           "content": content.value,
-          "folderId": folderId.value,
-          "modified": date
+          "folder_id": folderId.value,
+          "date_published": date
         })
     })
       .then(res =>{
@@ -134,7 +134,7 @@ export class AddNote extends Component {
           value={folder.id}
           key={folder.id}
         >
-          {folder.name}
+          {folder.folder_name}
         </option>
       )
     })

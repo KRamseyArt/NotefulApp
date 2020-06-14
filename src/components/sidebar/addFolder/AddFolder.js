@@ -27,15 +27,15 @@ export class AddFolder extends Component {
     // console.log("Folder Name: ", folderName);
     // console.log("Folder ID: ", folderId);
 
-    const ENDPOINT = 'http://localhost:9090';
-    fetch(`${ENDPOINT}/folders`,{
+    const ENDPOINT = 'http://localhost:8000';
+    fetch(`${ENDPOINT}/api/folders`,{
       method: 'POST',
       headers: {
         "Content-Type" : "application/json"
       },
       body: 
         JSON.stringify({
-          "name": folderName.value
+          "folder_name": folderName.value
         })
     })
       .then(res =>{

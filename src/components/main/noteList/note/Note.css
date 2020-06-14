@@ -5,7 +5,7 @@
   background: ghostwhite;
 }
 .Note:hover {
-  cursor: pointer;
+  /* cursor: pointer; */
   background: lightgoldenrodyellow;
 }
 
@@ -38,13 +38,15 @@ article {
   padding: 15px 5px;
 }
 .DeleteNote:hover{
-  cursor: pointer;
   border-color: darkred;
   background: darkred;
 }
 .DeleteNote a{
   color: ghostwhite;
   text-decoration: none;
+}
+.DeleteNote a:hover {
+  cursor: pointer;
 }
 
 .DeleteNote button {

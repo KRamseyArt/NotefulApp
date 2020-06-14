@@ -15,7 +15,7 @@ export class HomePage extends Component {
 
     const filteredNotes = !folderId
       ? notes
-      : notes.filter(note => note.folderId === folderId)
+      : notes.filter(note => note.folder_id == folderId)
       
     // const filteredNotes = this.context.notes.filter(note => {
     //   if (note.folderId === this.props.match.params.folderId){

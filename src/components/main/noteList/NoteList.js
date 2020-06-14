@@ -49,5 +49,11 @@ export class NoteList extends React.Component {
 export default NoteList;
 
 NoteList.propTypes = {
-  notes: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string))
+  notes: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    folder_id: PropTypes.number.isRequired,
+    date_published: PropTypes.string.isRequired,
+  }))
 }
