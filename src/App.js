@@ -4,6 +4,7 @@ import Context from './Context';
 import HomePage from './components/HomePage';
 import './App.css';
 import NotePage from './components/main/notePage/NotePage';
+import config from './config';
 
 export class App extends React.Component {
   state = {
@@ -12,7 +13,7 @@ export class App extends React.Component {
   }
 
   componentDidMount(){
-    const ENDPOINT = 'http://localhost:8000';
+    const ENDPOINT = config.API_ENDPOINT;
     Promise.all([
       fetch(`${ENDPOINT}/api/notes`),
       fetch(`${ENDPOINT}/api/folders`)

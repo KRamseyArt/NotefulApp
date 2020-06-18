@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types'
 
+import config from '../../../../config'
 import Context from './../../../../Context'
 
 import './Note.css';
@@ -16,7 +17,7 @@ export class Note extends Component {
     e.preventDefault()
     const noteId = this.props.note.id
 
-    const ENDPOINT = 'http://localhost:8000'
+    const ENDPOINT = config.API_ENDPOINT
     fetch(`${ENDPOINT}/api/notes/${noteId}`, {
       method: 'DELETE',
       headers: {
@@ -26,7 +27,7 @@ export class Note extends Component {
       .then(res => {
         if (!res.ok)
           return res.json().then(e => Promise.reject(e))
-        return res.json()
+        return res
       })
       .then(() => {
         this.context.deleteNote(noteId)

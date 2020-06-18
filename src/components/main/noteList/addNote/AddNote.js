@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import config from '../../../../config'
 
 import './AddNote.css';
 import Context from './../../../../Context';
@@ -39,7 +40,7 @@ export class AddNote extends Component {
     // console.log("Date: ", date);
     // console.log("Content: ", content.value);
 
-    const ENDPOINT = 'http://localhost:8000';
+    const ENDPOINT = config.API_ENDPOINT;
     fetch(`${ENDPOINT}/api/notes`,{
       method: 'POST',
       headers: {
@@ -67,6 +68,30 @@ export class AddNote extends Component {
       .catch(error => {
         console.log(error);
       })
+
+    e.target.title.value = "";
+    e.target.content.value = "";
+    this.resetState();
+  }
+
+  resetState(){
+    this.setState({
+      title: {
+        value: "",
+        touched: false
+      },
+      folderId: {
+        value:"",
+        touched: true
+      },
+      date: {
+        value: ""
+      },
+      content: {
+        value: "",
+        touched: false
+      }
+    })
   }
   updateFolder(folderId){
     this.setState({

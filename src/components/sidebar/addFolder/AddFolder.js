@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import './AddFolder.css'
 import Context from '../../../Context';
+import config from '../../../config';
 import ValidationError from './../../ValidationError/ValidationError'
 
 export class AddFolder extends Component {
@@ -27,7 +28,7 @@ export class AddFolder extends Component {
     // console.log("Folder Name: ", folderName);
     // console.log("Folder ID: ", folderId);
 
-    const ENDPOINT = 'http://localhost:8000';
+    const ENDPOINT = config.API_ENDPOINT;
     fetch(`${ENDPOINT}/api/folders`,{
       method: 'POST',
       headers: {
