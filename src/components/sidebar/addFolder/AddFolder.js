@@ -40,14 +40,18 @@ export class AddFolder extends Component {
         })
     })
       .then(res =>{
+        console.log(res)
         if(!res.ok){
+          console.log('not ok')
           return res.json().then(error => {
             throw error
           })
         }
+        console.log(res)
         return res.json()
       })
       .then(data => {
+        console.log(data)
         this.context.addFolder(data);
       })
       .catch(error => {

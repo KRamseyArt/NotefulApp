@@ -19,6 +19,7 @@ export class App extends React.Component {
       fetch(`${ENDPOINT}/api/folders`)
     ])
       .then(([notesRes, foldersRes]) => {
+        console.log([notesRes, foldersRes])
         if(!notesRes.ok)
           return notesRes.json().then(e => Promise.reject(e));
         if(!foldersRes.ok)
